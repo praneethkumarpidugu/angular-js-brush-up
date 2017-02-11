@@ -1,66 +1,66 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="en"
-      ng-app >
-<head >
-	<title >Controllers</title >
-	<link href="../libs/bootstrap/dist/css/bootstrap.min.css"
-	      rel="stylesheet" >
-	<link href="main.css"
-	      rel="stylesheet" >
-</head >
+        ng-app="">
+<head>
+    <title>Controllers</title>
+    <!--Adding bootstrap css-->
+    <link href="../libs/bootstrap/dist/css/bootstrap.min.css"
+            rel="stylesheet" >
+    <!--Add our css file-->
+    <link href="main.css"
+            rel="stylesheet">
+</head>
+<body>
+<!--We will add our Navbar-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand"
+                href="/">
+                Controllers
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container main-content">
+    <!--Adding form
+    Also binding with with ng-model-->
+    <form>
+        <!--Adding div for text-->
+        <div class="form-group">
+            <input type="text"
+                    class="form-control"
+                    ng-model="formData.name"
+                    id="name">
+        </div>
 
-<body >
+        <!--Adding div for email-->
+        <div class="form-group">
+            <input type="email"
+                    class="form-control"
+                    ng-model="formData.email"
+                    id="email">
+        </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" >
-	<div class="container" >
-		<div class="navbar-header" >
-			<a class="navbar-brand"
-			   href="/" >Controllers
-			</a >
-		</div >
+        <!--Adding div for password-->
+        <div class="form-group">
+            <input type="password"
+                    class="form-control"
+                    ng-model="formData.password"
+                    id="password">
+        </div>
+        <!--Adding div for a button to Register-->
+        <div class="form-group">
+            <button class="btn btn-primary">Register
+            </button>
+        </div>
+    </form>
+</div>
 
-	</div >
-</nav >
-
-<div class="container main-content" >
-
-	<form >
-		<div class="form-group" >
-			<label for="name" >Name</label >
-			<input type="text"
-			       class="form-control"
-			       ng-model="formData.name"
-			       id="name" >
-		</div >
-
-		<div class="form-group" >
-			<label for="email" >Email</label >
-			<input type="email"
-			       class="form-control"
-			       ng-model="formData.email"
-			       id="email" >
-		</div >
-
-		<div class="form-group" >
-			<label for="password" >Password</label >
-			<input type="password"
-			       class="form-control"
-			       ng-model="formData.password"
-			       id="password" >
-		</div >
-
-		<div class="form-group" >
-			<button class="btn btn-primary" >Register
-			</button >
-		</div >
-
-	</form >
-
-</div >
-
-<script src="../libs/angular/angular.min.js" ></script >
-<script src="main.js" ></script >
-
-
-</body >
-</html >
+<!--Adding dependencies
+1.) Angular
+2.) Our main.js-->
+<script src="../libs/angular/angular.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
