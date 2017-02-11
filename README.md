@@ -11,6 +11,9 @@
 ![screencast](lesson1/lesson1.gif)
 
 - [x] #### lesson2 - Controllers and Modules.
+
+![screencast](lesson2/lesson2.gif)
+
 - [x] #### lesson3 - Submit a form using $http.
 - [x] #### lesson4 - Form Validation using HTML5.
 - [x] #### lesson5 - Form Validation using core Angular js.
