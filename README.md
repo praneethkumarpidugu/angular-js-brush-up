@@ -1,5 +1,4 @@
-# Learn Real World AngularJS Step By Step by CodeCraft
-http://codecraftpro.com
+#Angular js Course From Codecraft
 
 ## Section 1 - How to submit and validate a form in AngularJS
 
@@ -8,7 +7,7 @@ http://codecraftpro.com
 ./libs/ - The required libraries for all lessons.
 
 - [x] lesson1 - Data Binding.
-![screencast](/lesson1/lesson1.gif)
+![screencast](lesson1/lesson1.gif)
 - [x] lesson2 - Controllers and Modules.
 - [x] lesson3 - Submit a form using $http.
 - [x] lesson4 - Form Validation using HTML5.
