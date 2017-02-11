@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<!--Defining our application with ng-app -->
 <html lang="en"
-        ng-app="">
+        ng-app="minmax">
 <head>
     <title>Controllers</title>
     <!--Adding bootstrap css-->
@@ -22,39 +23,47 @@
         </div>
     </div>
 </nav>
-<div class="container main-content">
+<!--Here is the place we are going to add directive ng-controller to DOM-->
+<div class="container main-content" ng-controller="MinMaxCtrl">
     <!--Adding form
-    Also binding with with ng-model-->
+    Also binding with with $scope variable formModel from app.js-->
     <form>
         <!--Adding div for text-->
         <div class="form-group">
+            <label for="password">Password</label>
             <input type="text"
                     class="form-control"
-                    ng-model="formData.name"
+                    ng-model="formModel.name"
                     id="name">
         </div>
 
         <!--Adding div for email-->
         <div class="form-group">
+            <label for="email">Email</label>
             <input type="email"
                     class="form-control"
-                    ng-model="formData.email"
+                    ng-model="formModel.email"
                     id="email">
         </div>
 
         <!--Adding div for password-->
         <div class="form-group">
+            <label for="password">Password</label>
             <input type="password"
                     class="form-control"
-                    ng-model="formData.password"
+                    ng-model="formModel.password"
                     id="password">
         </div>
-        <!--Adding div for a button to Register-->
+        <!--Adding div for a button to Register and when we
+         click on that we will put the data into the server with
+         ng-click directive passing function name.-->
         <div class="form-group">
-            <button class="btn btn-primary">Register
+            <button class="btn btn-primary" ng-click="onSubmit()">Register
             </button>
         </div>
     </form>
+    <!--To visually show what is happening with scopes-->
+    <pre>{{ formModel | json }}</pre>
 </div>
 
 <!--Adding dependencies
