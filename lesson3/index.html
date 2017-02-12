@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--To autobootstrap our application we will add ng-app directive-->
-<html lang="en" ng-app>
+<html lang="en" ng-app="minmax">
 <head>
     <meta charset="UTF-8">
     <!--Adding the title form submission-->
@@ -20,13 +20,14 @@
     </div>
 </nav>
 
-<div class="container main-content">
+<div class="container main-content" ng-controller="MinMaxCtrl">
     <form>
         <!--form section for Name-->
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text"
                     class="form-control"
+                    ng-model="formModel.name"
                     id="name">
         </div>
         <!--Form Section for email-->
@@ -34,6 +35,7 @@
             <label for="email">Email</label>
             <input type="email"
                     class="form-control"
+                    ng-model="formModel.email"
                     id="email">
         </div>
         <!--Form Section for username-->
@@ -41,6 +43,7 @@
             <label for="username">Username</label>
             <input type="text"
                     class="form-control"
+                    ng-model="formModel.username"
                     id="username">
         </div>
         <!--Form selection for age-->
@@ -48,6 +51,7 @@
             <label for="age">Age</label>
             <input type="number"
                     class="form-control"
+                    ng-model="formModel.age"
                     id="age">
         </div>
         <!--Form selection for sex-->
@@ -55,7 +59,8 @@
             <label for="sex">Sex</label>
             <select name="sex"
                     id="sex"
-                    class="form-control">
+                    class="form-control"
+                    ng-model="formModel.sex">
                 <option value="">Please choose</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -66,7 +71,8 @@
             <label for="password">Password</label>
             <input type="password"
                     class="form-control"
-                    id="password">
+                    id="password"
+                    ng-model="formModel.password">
         </div>
 
         <!--Form button Register-->
@@ -77,6 +83,7 @@
         </div>
 
     </form>
+    <pre>{{ formModel | json }}</pre>
 </div>
 
 <script src="../libs/angular/angular.min.js"></script>
