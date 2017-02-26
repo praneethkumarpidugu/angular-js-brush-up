@@ -14,9 +14,9 @@ app.controller('MinMaxCtrl', function ($scope, $http) {
 
       $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).
         success(function (data) {
-            console.log(":)")
+            console.log(":)");
       }).error(function (data) {
-            console.log(":(")
+            console.log(":(");
       });
     };
 });

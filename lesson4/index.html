@@ -26,7 +26,8 @@
             <input type="text"
                     class="form-control"
                     ng-model="formModel.name"
-                    id="name">
+                    id="name"
+                    required="required">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
@@ -72,9 +73,13 @@
         </div>
         <!--Register button-->
         <div class="form-group">
-            <button class="btn btn-primary" ng-click="onSubmit()">Register</button>
+            <button class="btn btn-primary" type="submit">Register</button>
         </div>
     </form>
+    <pre>{{ formModel | json }}</pre>
 </div>
+
+<script src="../libs/angular/angular.min.js" ></script >
+<script src="main.js" ></script >
 </body>
 </html>
