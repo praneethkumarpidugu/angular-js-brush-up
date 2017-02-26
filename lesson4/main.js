@@ -12,9 +12,9 @@ app.controller('MinMaxCtrl', function ($scope, $http) {
       console.log("I'm submitted");
       console.log($scope.formModel);
 
-      $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel)
-          .success(function (data) {
-            console.log(":)");
+      $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).
+        success(function (data) {
+            console.log(":)")
       }).error(function (data) {
             console.log(":(")
       });

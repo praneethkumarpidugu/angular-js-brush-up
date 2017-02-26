@@ -20,7 +20,7 @@
 <!--Aligning our main content in the class main-content along with container class-->
 <div class="container main-content" ng-controller="MinMaxCtrl">
     <!--Creating our form with class form-group-->
-    <form>
+    <form ng-submit="onSubmit()">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text"
