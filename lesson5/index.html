@@ -25,13 +25,27 @@
     <form ng-submit="onSubmit(theForm.$valid)"
           name="theForm"
             novalidate="novalidate">
-        <div class="form-group">
-            <label for="name">Name</label>
+        <div class="form-group" ng-class="{
+            'has-error': !theForm.name.$valid && (!theForm.name.$pristine || theForm.$submitted),
+            'has-success': theForm.name.$valid && (!theForm.name.$pristine || theForm.$submitted)
+        }">
+            <label for="name" class="control-label">Name</label>
             <input type="text"
                     class="form-control"
                     ng-model="formModel.name"
-                    id="name">
+                    id="name"
+                    required="required"
+                    name="name">
+            <!--We will show help block if the form is submitted without entering any fields-->
+            <p class="help-block" ng-show="theForm.name.$error.required
+            && (!theForm.$pristine || theForm.$submitted)">
+                This Field is required.
         </div>
+
+        <pre>Form Validaion : {{ theForm.name.$valid }}</pre>
+        <pre>Form Pristine: {{ theForm.name.$pristine }}</pre>
+        <pre>Form Submitted: {{ theForm.name.$submitted }}</pre>
+
         <div class="form-group" ng-class="{
         'has-error':!theForm.email.$valid && (!theForm.email.$pristine || theForm.$submitted),
         'has-success':theForm.email.$valid && (!theForm.email.$pristine || theForm.$submitted)
