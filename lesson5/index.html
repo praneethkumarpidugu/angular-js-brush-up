@@ -42,9 +42,9 @@
                 This Field is required.
         </div>
 
-        <pre>Form Validaion : {{ theForm.name.$valid }}</pre>
-        <pre>Form Pristine: {{ theForm.name.$pristine }}</pre>
-        <pre>Form Submitted: {{ theForm.name.$submitted }}</pre>
+        <!--<pre>Form Validaion : {{ theForm.name.$valid }}</pre>-->
+        <!--<pre>Form Pristine: {{ theForm.name.$pristine }}</pre>-->
+        <!--<pre>Form Submitted: {{ theForm.name.$submitted }}</pre>-->
 
         <div class="form-group" ng-class="{
         'has-error':!theForm.email.$valid && (!theForm.email.$pristine || theForm.$submitted),
@@ -70,36 +70,73 @@
             <!--Form Pristine: {{ theForm.email.$pristine }}-->
             <!--Form Submitted: {{ theForm.$submitted }}-->
         <!--</pre>-->
-        <div class="form-group">
-            <label for="username">Username</label>
+
+        <div class="form-group" ng-class="{
+            'has-error':!theForm.username.$valid && (!theForm.username.$pristine || theForm.$submitted),
+            'has-success':theForm.username.$valid && (!theForm.username.$pristine || theForm.$submitted)
+            }">
+            <label for="username" class="control-label">Username</label>
             <input type="text"
                     class="form-control"
                     ng-model="formModel.username"
-                    id="username">
+                    id="username"
+                    required="required"
+                    name="username">
+            <p class="help-block" ng-show="theForm.username.$error.required && (!theForm.$pristine || theForm.$submitted)">
+                This Field is required.
+            </p>
         </div>
-        <div class="form-group">
-            <label for="age">Age</label>
+
+        <div class="form-group" ng-class="{
+            'has-error':!theForm.age.$valid && (!theForm.$pristine || theForm.$submitted),
+            'has-success':theForm.age.$valid && (!theForm.$pristine || theForm.$submitted)
+        }">
+            <label for="age" class="control-label">Age</label>
             <input type="number"
                     class="form-control"
                     ng-model="formModel.age"
-                    id="age">
+                    id="age"
+                    required="required"
+                    name="age">
+            <p class="help-block" ng-show="theForm.age.$error.required && (!theForm.$pristine || theForm.$submitted)">
+                This Field is required.
+            </p>
+
         </div>
-        <div class="form-group">
-            <label for="sex">Sex</label>
+
+        <div class="form-group" ng-class="{
+            'has-error':!theForm.sex.$valid && (!theForm.$pristine || theForm.$submitted),
+            'has-success': theForm.sex.$valid && (!theForm.$pristine || theForm.$submitted)
+        }">
+            <label for="sex" class="control-label">Sex</label>
             <select id="sex"
                     class="form-control"
-                    ng-model="formModel.sex">
+                    ng-model="formModel.sex"
+                    required="required"
+                    name="sex">
                 <option value="">Please Choose</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
+            <p class="help-block" ng-show="theForm.sex.$error.required && (!theForm.$pristine || theForm.$submitted)">
+                This Field is required.
+            </p>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
+        <!--TODO: Form Validation using password-->
+        <div class="form-group" ng-class="{
+            'has-error':!theForm.password.$valid && (!theForm.$pristine || theForm.$submitted),
+            'has-success':theForm.password.$valid && (!theForm.$pristine || theForm.$submitted)
+        }">
+            <label for="password" class="control-label">Password</label>
             <input type="password"
                     class="form-control"
                     id="password"
-                    ng-model="formModel.password">
+                    ng-model="formModel.password"
+                    required="required"
+                    name="password">
+            <p class="help-block" ng-show="theForm.password.$error.required && (!theForm.$pristine || theForm.$submitted)">
+                This Field is required.
+            </p>
         </div>
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Register</button>
