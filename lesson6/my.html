@@ -24,45 +24,51 @@
 <!--Main content-->
 <div class="container main-content" ng-controller="MinMaxCtrl">
     <!--Form-->
-    <form ng-submit="onSubmit(theForm.$valid)" name="theForm" novalidate="novalidate">
+    <!--Removed theForm.$valid and name field-->
+    <form ng-submit="onSubmit()" novalidate="novalidate">
         <!--Name-->
         <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name" class="control-label">Name</label>
             <input type="text"
                     class="form-control"
                     id="name"
-                    ng-model="formModel.name">
+                    ng-model="formModel.name"
+                    required="required">
         </div>
         <!--email-->
         <div class="form-group">
-            <label for="email">Name</label>
+            <label for="email" class="control-label">Name</label>
             <input type="email"
                     class="form-control"
                     id="email"
-                    ng-model="formModel.email">
+                    ng-model="formModel.email"
+                    required="required">
         </div>
         <!--username-->
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username" class="control-label">Username</label>
             <input type="text"
                     class="form-control"
                     id="username"
-                    ng-model="formModel.username">
+                    ng-model="formModel.username"
+                    required="required">
         </div>
         <!--age-->
         <div class="form-group">
-            <label for="age">Age</label>
+            <label for="age" class="control-label">Age</label>
             <input type="number"
                     class="form-control"
                     id="age"
-                    ng-model="formModel.age">
+                    ng-model="formModel.age"
+                    required="required">
         </div>
         <!--sex select field-->
         <div class="form-group">
-            <label for="sex">Sex</label>
+            <label for="sex" class="control-label">Sex</label>
             <select id="sex"
                     class="form-control"
-                    ng-model="formModel.sex">
+                    ng-model="formModel.sex"
+                    required="required">
                 <option value="">Please Choose</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -70,11 +76,12 @@
         </div>
         <!--password-->
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password" class="control-label">Password</label>
             <input type="password"
                     class="form-control"
                     id="password"
-                    ng-model="formModel.password">
+                    ng-model="formModel.password"
+                    required="required">
         </div>
         <!--Register Button-->
         <div class="form-group">
@@ -83,11 +90,12 @@
             </button>
         </div>
     </form>
-    <pre></pre>
+    <pre>{ formModel | json }</pre>
 </div>
 
 <!--Javascript dependencies-->
 <script src="../libs/angular/angular.min.js"></script>
+<script src="../libs/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
 <script src="my.js"></script>
 </body>
 </html>
