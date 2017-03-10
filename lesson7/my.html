@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--Install App-->
+<html lang="en" ng-app="minmax">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation - Part 3</title>
+    <!--css dependencies-->
+    <link href="../libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="my.css" rel="stylesheet">
+</head>
+<body>
+<!--Nav bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <!--div class of container to hold navbar header-->
+    <div class="container">
+        <div class="navbar-header">
+        <!--Our title with navbar-brand-->
+            <a class="navbar-brand" href="/">Form Validation Part - 3</a>
+        </div>
+    </div>
+</nav>
+<!--Div component with class container, main-content and ng-controller directive-->
+
+<div class="container main-content" ng-controller="MinMaxCtrl">
+    <!--Form-->
+    <form ng-submit="onSubmit()" novalidate="novalidate">
+    <!--name-->
+        <div class="form-group">
+            <label for="name" class="control-label">Name</label>
+            <input type="text"
+                    class="form-control"
+                    id="name"
+                    required="required"
+                    ng-model="formModel.name">
+        </div>
+    <!--email-->
+        <div class="form-group">
+            <label for="email" class="control-label">Email</label>
+            <input type="email"
+                    class="form-control"
+                    id="email"
+                    required="required"
+                    ng-model="formModel.email">
+        </div>
+    <!--username-->
+        <div class="form-group">
+            <label for="username" class="control-label">Username</label>
+            <input type="text"
+                    class="form-control"
+                    id="username"
+                    required="required"
+                    ng-model="formModel.username"
+                    ng-pattern="/^[A-Za-z0-9_]{1,15}$/"
+                    ng-minlength="7"
+                    ng-pattern-err-type="badUsername">
+        </div>
+    <!--age-->
+        <div class="form-group">
+            <label for="age" class="control-label">Age</label>
+            <input type="number"
+                    class="form-control"
+                    id="age"
+                    required="required"
+                    ng-model="formModel.age"
+                    min="18"
+                    max="64"
+                    ng-min-err-type="tooYoung"
+                    ng-max-err-type="tooOld">
+        </div>
+    <!--sex-->
+        <div class="form-group">
+            <label for="sex" class="control-label">Sex</label>
+            <select class="form-control"
+                    id="sex"
+                    required="required"
+                    ng-model="formModel.sex">
+                <option value="">Please Choose</option>
+                <option value="male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+    <!--password-->
+        <div class="form-group">
+            <label for="password" class="control-label">Password</label>
+            <input type="password"
+                    class="form-control"
+                    id="password"
+                    required="required"
+                    ng-model="formModel.password"
+                    ng-minlength="10">
+        </div>
+    <!--Register Button-->
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
+    <!--Form end-->
+    </form>
+    <pre>{{ formModel | json }}</pre>
+
+
+</div>
+
+<!--javascript dependenices-->
+<script src="../libs/angular/angular.min.js"></script>
+<script src="../libs/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+<script src="my.js"></script>
+</body>
+</html>
