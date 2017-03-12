@@ -2,8 +2,7 @@
  * Created by praneethkumar on 09/03/17.
  */
 //Define angular app
-var app = angular.module('minmax', ['jcs-autoValidate']);
-//controller
+var app = angular.module('minmax', ['jcs-autoValidate', 'angular-ladda']);
 
 //run intialization
 app.run(function (defaultErrorMessageResolver) {
@@ -13,16 +12,19 @@ app.run(function (defaultErrorMessageResolver) {
         errorMessages['badUsername'] = "Username can only contain numbers, letters and _";
     });
 });
+
+//controller
+
 app.controller('MinMaxCtrl', function ($scope, $http) {
-    console.log($scope);
+
     $scope.formModel = {};
 
     $scope.onSubmit = function () {
       console.log("I'm submitted");
-      $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).success(function (data) {
-          console.log(":)")
-      }).error(function (data) {
-          console.log(":(")
-      });
+      $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).then(function (data) {
+                console.log(":)");
+            }).(function (data) {
+                console.log(":(");
+        });
     };
 });
