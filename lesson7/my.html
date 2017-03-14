@@ -92,7 +92,13 @@
         </div>
     <!--Register Button-->
         <div class="form-group">
-            <button class="btn btn-primary" ladda="true" data-style="expand-right" type="submit">Register</button>
+            <button class="btn btn-primary"
+                    ladda="submitting"
+                    data-style="expand-right"
+                    type="submit">
+            <span ng-show="submitting">Registering</span>
+            <span ng-show="!submitting">Register</span>
+            </button>
         </div>
     <!--Form end-->
     </form>

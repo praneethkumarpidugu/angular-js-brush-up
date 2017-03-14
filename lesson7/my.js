@@ -20,10 +20,13 @@ app.controller('MinMaxCtrl', function ($scope, $http) {
     $scope.formModel = {};
 
     $scope.onSubmit = function () {
-      console.log("I'm submitted");
-      $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).then(function successCallback(data) {
+        $scope.submitting = true;
+        console.log("I'm submitted");
+        $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).then(function successCallback(data) {
+                $scope.submitting = false;
                 console.log(":)");
             }), (function errorCallback(data) {
+                $scope.submitting = false;
                 console.log(":(");
         });
     };
