@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Install ng-app-->
-<html lang="en">
+<html lang="en" ng-app="codecraft">
 <head>
     <meta charset="UTF-8">
     <!--Title for our app-->
@@ -20,8 +20,21 @@
 </nav>
 
 <!-- container main-content-->
-<div class="container main-content">
-
+<div class="container main-content" ng-controller="PersonsController">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthday</th>
+        </tr>
+        <tr ng-repeat="person in persons">
+            <td>{{ $index }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.birthdate | date:'longDate' }}</td>
+        </tr>
+    </table>
 </div>
 
 <!--js dependencies-->
