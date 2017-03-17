@@ -28,7 +28,10 @@
             <th>Email</th>
             <th>Birthday</th>
         </tr>
-        <tr ng-repeat="person in persons">
+        <tr ng-repeat="person in persons"
+            ng-style="{
+            'background-color': 'lightgray'
+            }">
             <td>{{ $index }}</td>
             <td>{{ person.name }}</td>
             <td>{{ person.email }}</td>
