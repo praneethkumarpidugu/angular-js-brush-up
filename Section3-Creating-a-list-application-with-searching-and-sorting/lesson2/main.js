@@ -4,8 +4,11 @@ app.controller('PersonsController', function ($scope) {
 	//to begin with initialized it to null
 	$scope.selectedIndex = null;
 
-	$scope.selectPerson = function (index) {
+	$scope.selectedPerson = null;
+
+	$scope.selectPerson = function (person, index) {
 		$scope.selectedIndex = index;
+		$scope.selectedPerson = person;
     };
 	$scope.persons = [
 		{
