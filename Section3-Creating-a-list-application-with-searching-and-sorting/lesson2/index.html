@@ -19,6 +19,18 @@
 
 <div class="container main-content" ng-controller="PersonsController">
 	<div class="row">
+		<div class="col-md-12">
+			<form class="form-inline well well-sm">
+				<span class="glyphicon glyphicon-search"></span>
+				<div class="form-group">
+					<input type="text"
+						   id="name"
+						   class="form-control"
+						   ng-model="search"
+						   placeholder="Search name..."/>
+				</div>
+			</form>
+		</div>
 		<div class="col-md-8">
 			<table class="table table-bordered">
 
@@ -29,7 +41,7 @@
 					<th>Birthday</th>
 				</tr>
 
-				<tr ng-repeat="person in persons"
+				<tr ng-repeat="person in persons | filter:sensitiveSearch"
 					ng-style="{
 				'background-color': $index == selectedIndex ? 'lightgray' : ''
 			}"
@@ -65,6 +77,7 @@
 				</div>
 			</div>
 		</div>
+		<pre>{{ search }}</pre>
 	</div>
 
 
