@@ -5,13 +5,12 @@ app.controller('PersonsController', function ($scope) {
 	$scope.order = "email";
 	$scope.search = "";
 	//to begin with initialized it to null
-	$scope.selectedIndex = null;
 
 	$scope.selectedPerson = null;
 
-	$scope.selectPerson = function (person, index) {
-		$scope.selectedIndex = index;
+	$scope.selectPerson = function (person) {
 		$scope.selectedPerson = person;
+
     };
 
 	$scope.sensitiveSearch = function (person) {

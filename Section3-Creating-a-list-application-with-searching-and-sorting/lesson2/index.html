@@ -56,16 +56,25 @@
 					<th>Birthday</th>
 				</tr>
 
-				<tr ng-repeat="person in persons | filter:sensitiveSearch | orderBy:order"
+				<tr ng-repeat="person in filteredPerson = (persons | filter:sensitiveSearch | orderBy:order)"
 					ng-style="{
-				'background-color': $index == selectedIndex ? 'lightgray' : ''
+				'background-color': person.email == selectedPerson.email ? 'lightgray' : ''
 			}"
-					ng-click="selectPerson(person, $index)"
+					ng-click="selectPerson(person)"
 				>
 					<td>{{ $index }}</td>
 					<td>{{ person.name }}</td>
 					<td>{{ person.email }}</td>
 					<td>{{ person.birthdate | date:"longDate" }}</td>
+				</tr>
+				<tr ng-show="filteredPerson.length == 0">
+					<td colspan="4">
+						<div class="alert alert-info">
+							<p class="text-center">
+								No Results found for '{{search}}'
+							</p>
+						</div>
+					</td>
 				</tr>
 			</table>
 		</div>
