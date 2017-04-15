@@ -18,7 +18,7 @@
             <div class="root">
             <label>
                 <input type="text"
-                        ng-model="name">
+                        ng-model="data.name">
             </label>
             <p>{{ name }}</p>
 
@@ -31,7 +31,7 @@
                     ng-controller="ParentController">
                 <label>
                     <input type="text"
-                            ng-model="name">
+                            ng-model="data.name">
                 </label>
                 <p>{{ name }}</p>
                 <!--Here we have
@@ -40,7 +40,7 @@
                 <div class="child"
                     ng-controller="ChildController">
                     <label>
-                        <input name="text" ng-model="name">
+                        <input name="text" ng-model="data.name">
                     </label>
 
                     <button class="btn" ng-click="reset()">Reset</button>
