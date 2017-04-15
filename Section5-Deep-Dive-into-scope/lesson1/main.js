@@ -13,4 +13,4 @@ app.controller('ParentController', function ($scope) {
 });
 app.controller('ChildController', function () {
 
-})
+});

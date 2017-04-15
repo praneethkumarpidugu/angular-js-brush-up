@@ -6,7 +6,7 @@
     <!--css dependencies-->
     <link href="../libs/bootstrap/dist/css/bootstrap.min.css"
           rel="stylesheet">
-    <link href="main1.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
 </head>
 <body>
 
@@ -23,6 +23,18 @@
                             ng-model="name">
                 </label>
                 <p>{{ name }}</p>
+                <!--Here we have
+                    a child controller which has access to
+                     parent controller-->
+                <div class="child"
+                    ng-controller="ChildController">
+                    <label>
+                        <input name="text" ng-model="name">
+                    </label>
+
+                    <button class="btn" ng-click="reset()">Reset</button>
+                    {{ name }}
+                </div>
             </div>
         </div>
     </div>
