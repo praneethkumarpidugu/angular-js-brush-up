@@ -1,6 +1,12 @@
 var app = angular.module('codecraft', []);
 
-app.controller('PersonsController', function ($scope) {
+//Persons Detail Controller
+app.controller('PersonsDetailController', function ($scope) {
+
+});
+
+//Persons List Controller
+app.controller('PersonsListController', function ($scope) {
 
 	$scope.search = "";
 	$scope.order = "email";

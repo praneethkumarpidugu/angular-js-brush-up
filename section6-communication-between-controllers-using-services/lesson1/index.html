@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html lang="en" ng-app="codecraft" >
 <head >
-	<title >Lists Of Things</title >
+	<title >Contacts</title >
 	<link href="../libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
 	<link href="main.css" rel="stylesheet" >
 </head >
@@ -17,81 +17,78 @@
 	</div >
 </nav >
 
-<div class="container main-content" ng-controller="PersonsController" >
+<div class="container main-content" >
 
 	<div class="row" >
-		<div class="col-md-12" >
-			<form class="form-inline well well-sm" >
-				<span class="glyphicon glyphicon-search" ></span >
+		<div class="col-md-8" ng-controller="PersonsListController">
+			<div class="row">
+				<div class="col-md-12" >
+					<form class="form-inline well well-sm" >
+						<span class="glyphicon glyphicon-search" ></span >
 
-				<div class="form-group" >
-						<input type="text"
-						       class="form-control"
-						       id="name"
-						       ng-model="search"
-						       placeholder="Search name..."
-								/>
-				</div >
+						<div class="form-group" >
+							<input type="text"
+								   class="form-control"
+								   id="name"
+								   ng-model="search"
+								   placeholder="Search name..."
+							/>
+						</div >
 
-				<span class="glyphicon glyphicon-sort-by-attributes" ></span >
+						<span class="glyphicon glyphicon-sort-by-attributes" ></span >
 
-				<div class="form-group" >
-					<select class="form-control"
+						<div class="form-group" >
+							<select class="form-control"
 									ng-model="order">
-						<option value="name" >Name (ASC)</option >
-						<option value="-name" >Name (DEC)</option >
-						<option value="email" >Email (ASC)</option >
-						<option value="-email" >Email (DEC)</option >
-					</select >
-				</div >
+								<option value="name" >Name (ASC)</option >
+								<option value="-name" >Name (DEC)</option >
+								<option value="email" >Email (ASC)</option >
+								<option value="-email" >Email (DEC)</option >
+							</select >
+						</div >
+					</form >
 
-			</form >
-		</div >
-	</div >
+					<table class="table table-bordered" >
 
+						<tr >
+							<th >#</th >
+							<th >Name
+								<span ng-click="order = 'name'" class="glyphicon glyphicon-menu-up"></span>
+								<span ng-click="order = '-name'" class="glyphicon glyphicon-menu-down"></span>
+							</th >
+							<th >Email
+								<span ng-click="order = 'email'" class="glyphicon glyphicon-menu-up"></span>
+								<span ng-click="order = '-email'" class="glyphicon glyphicon-menu-down"></span>
+							</th >
+							<th >Birthday</th >
+						</tr >
 
-	<div class="row" >
-		<div class="col-md-8" >
-
-			<table class="table table-bordered" >
-
-				<tr >
-					<th >#</th >
-					<th >Name
-						<span ng-click="order = 'name'" class="glyphicon glyphicon-menu-up"></span>
-						<span ng-click="order = '-name'" class="glyphicon glyphicon-menu-down"></span>
-					</th >
-					<th >Email
-						<span ng-click="order = 'email'" class="glyphicon glyphicon-menu-up"></span>
-						<span ng-click="order = '-email'" class="glyphicon glyphicon-menu-down"></span>
-					</th >
-					<th >Birthday</th >
-				</tr >
-
-				<tr ng-repeat="person in filteredPersons = (persons | filter:sensitiveSearch | orderBy:order)"
-				    ng-style="{
+						<tr ng-repeat="person in filteredPersons = (persons | filter:sensitiveSearch | orderBy:order)"
+							ng-style="{
 							 'background-color': $index == selectedIndex ? 'lightgray' : ''
 						}"
-				    ng-click="selectPerson(person, $index)" >
-					<td >{{ $index }}</td >
-					<td >{{ person.name }}</td >
-					<td >{{ person.email }}</td >
-					<td >{{ person.birthdate | date:"longDate" }}</td >
-				</tr >
-				<tr ng-show="filteredPersons.length == 0">
-					<td colspan="4">
-						<div class="alert alert-info">
-							<p class="text-center">No results found for search term '{{ search }}'</p>
-						</div>
-					</td>
-				</tr>
+							ng-click="selectPerson(person, $index)" >
+							<td >{{ $index }}</td >
+							<td >{{ person.name }}</td >
+							<td >{{ person.email }}</td >
+							<td >{{ person.birthdate | date:"longDate" }}</td >
+						</tr >
+						<tr ng-show="filteredPersons.length == 0">
+							<td colspan="4">
+								<div class="alert alert-info">
+									<p class="text-center">No results found for search term '{{ search }}'</p>
+								</div>
+							</td>
+						</tr>
 
 
-			</table >
+					</table >
+				</div>
 
-		</div >
-		<div class="col-md-4" >
+			</div>
 
+		</div>
+		<div class="col-md-4" ng-controller="PersonsDetailController">
 			<div class="panel panel-default" >
 				<div class="panel-heading" >Details</div >
 				<div class="panel-body" >
@@ -117,8 +114,8 @@
 			</div >
 
 		</div >
-	</div >
 
+	</div >
 
 </div >
 
