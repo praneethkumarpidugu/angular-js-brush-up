@@ -6,16 +6,16 @@ app.controller('PersonsDetailController', function ($scope) {
 });
 
 //Persons List Controller
-app.controller('PersonsListController', function ($scope) {
+app.controller('PersonsListController', function ($scope, $rootScope) {
 
 	$scope.search = "";
 	$scope.order = "email";
 	$scope.selectedIndex = null;
-	$scope.selectedPerson = null;
+	$rootScope.selectedPerson = null;
 
 	$scope.selectPerson = function (person, index) {
 		$scope.selectedIndex = index;
-		$scope.selectedPerson = person;
+		$rootScope.selectedPerson = person;
 	};
 
 	$scope.sensitiveSearch = function(person) {
