@@ -916,20 +916,17 @@ app.service('ContactService', function () {
 });
 
 //Persons Detail Controller
-app.controller('PersonsDetailController', function ($scope) {
-
+app.controller('PersonsDetailController', function ($scope, ContactService) {
+    $scope.contacts = ContactService;
 });
 
 //Persons List Controller
-app.controller('PersonsListController', function ($scope) {
+app.controller('PersonsListController', function ($scope, ContactService) {
 
 	$scope.search = "";
 	$scope.order = "email";
+	$scope.contacts = ContactService;
 
-	$scope.selectPerson = function (person, index) {
-
-		$scope.selectedPerson = person;
-	};
 
 	$scope.sensitiveSearch = function(person) {
 		if ($scope.search) {
