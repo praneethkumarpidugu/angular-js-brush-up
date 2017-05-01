@@ -1,4 +1,6 @@
-var app = angular.module('codecraft', []);
+var app = angular.module('codecraft', [
+	'ngResource'
+]);
 
 
 
